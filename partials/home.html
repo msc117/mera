@@ -1,0 +1,16 @@
+<div class="mc-container">
+  <div id="mc-control" class="">
+    <div id="mc-settings">
+      <span class="icon icon-settings"></span>
+      <a href="#/edit" class="ctrlBtn">EDIT
+        <span class="icon icon-edit"></span>
+      </a>
+      <div id="saveBtn" class="ctrlBtn" ng-if="edit" ng-click="save()">Save</div>
+      <div id="clearStorage" class="ctrlBtn" ng-if="edit" ng-click="reset()">Reset Defaults</div>
+     </div>
+  </div>
+  <div class="gridster" ng-controller="meraTiles">
+    <!-- tiles inserted through doc init -->
+    <ul id="mc-tiles"></ul>
+  </div>
+</div>
