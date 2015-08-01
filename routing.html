@@ -1,0 +1,25 @@
+<script src="bower_components/page.js/page.js"></script>
+
+<script type="text/javascript">
+  window.addEventListener('WebComponentsReady', function() {
+
+    // We use Page.js for routing. This is a Micro
+    // client-side router inspired by the Express router
+    // More info: https://visionmedia.github.io/page.js/
+    page('/home', function () {
+      mera.route = 'home';
+      console.log('home');
+    });
+
+    page('/edit', function () {
+      mera.route = 'edit';
+      console.log('edit');
+    });
+
+    // don't add #! before urls
+    page({
+      hashbang: false
+    });
+
+  });
+</script>

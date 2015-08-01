@@ -1,0 +1,32 @@
+<dom-module id="mera-container">
+  <style>
+  /* styles for main container */
+  #container {
+    padding: 0 15px;
+    margin: 0 auto;
+    max-width: 1080px;
+  }
+  </style>
+  <template>
+    <div id="container">
+      <!-- content inserted here -->
+      <content></content>
+    </div>
+  </template>
+
+</dom-module>
+<script>
+ (function() {
+  Polymer({
+    is: "mera-container",
+
+    properties: {
+      hello: {
+        type: String,
+        value: "Inserted through polymer!"
+      }
+    }
+
+  });
+})();
+</script>
