@@ -1,0 +1,30 @@
+{
+  "name": "mera",
+  "version": "0.0.1",
+  "authors": [
+    "Mikel Canovas <mikel.canovas@gmail.com>"
+  ],
+  "description": "new tab replacement",
+  "main": "index.html",
+  "keywords": [
+    "new",
+    "tab",
+    "replacement",
+    "wallpaper",
+    "widget",
+    "tile",
+    "material"
+  ],
+  "license": "MIT",
+  "homepage": "toro.github.io",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "material-design-lite": "~1.0.1"
+  }
+}

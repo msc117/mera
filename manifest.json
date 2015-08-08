@@ -1,12 +1,1 @@
-{
-  "name" : "Mera",
-  "description" : "New Tab Replacement",
-  "version" : "0.01",
-  "permissions" : [
-    "topSites"
-  ],
-  "chrome_url_overrides" : {
-    "newtab" : "index.html"
-  },
-  "manifest_version" : 2
-}
+/* see previous version */

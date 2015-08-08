@@ -1,16 +1,35 @@
 <div class="mc-container">
-  <div id="mc-control" class="">
-    <div id="mc-settings">
-      <span class="icon icon-settings"></span>
-      <a href="#/edit" class="ctrlBtn">EDIT
-        <span class="icon icon-edit"></span>
-      </a>
-      <div id="saveBtn" class="ctrlBtn" ng-if="edit" ng-click="save()">Save</div>
-      <div id="clearStorage" class="ctrlBtn" ng-if="edit" ng-click="reset()">Reset Defaults</div>
-     </div>
+  <div class="mera-btn-group" id="mera-edit-settings" ng-if="edit">
+    <div class="mera-btn" id="mera-edit-save" ng-click="save()">Save</div>
+    <div class="mera-btn" id="mera-edit-save" ng-click="hardReset()">Hard Reset</div>
+    <div class="mera-btn" id="mera-edit-save" ng-click="reset()">Reset</div>
+  </div>
+  <div class="mera-settings-tray animate animate-slow collapsed" id="mc-settings" ng-controller="meraSettingsTray">
+    <div>
+      <i class="svg-ic_menu_24px" id="mera-settings-menu"></i>
+    </div>
+    <a href="#/edit" ng-if="!edit" class="ctrlBtn">EDIT
+      <span class="icon icon-edit"></span>
+    </a>
+    <a href="#/home" ng-if="edit" class="ctrlBtn">CANCEL
+      <span class="icon icon-back"></span>
+    </a>
   </div>
   <div class="gridster" ng-controller="meraTiles">
     <!-- tiles inserted through doc init -->
     <ul id="mc-tiles"></ul>
   </div>
+  <div class="fab animate flex-block" ng-if="edit" ng-mouseenter="openFab()" ng-mouseleave="closeFab()">
+    +
+    <div class="hidden" id="mc-pick-tiles">
+      <!-- TODO: on hover over items import html of element and display highlighted on screen to showcase widget -->
+      <ul class="hidden mera-material-list mdl-js-ripple-effect mdl-js-menu" id="mc-available-tiles">
+          <li class="flex-block animate animate-fast" id="mera-clock" ng-mouseenter="showTile()" ng-mouseleave="hideTile()">Clock</li>
+          <li class="flex-block animate animate-fast" id="mera-link" ng-mouseenter="showTile()" ng-mouseleave="hideTile()">Website Link</li>
+          <li class="flex-block animate animate-fast" id="mera-news" ng-mouseenter="showTile()" ng-mouseleave="hideTile()">News</li>
+          <li class="flex-block animate animate-fast" id="mera-custom-rss" ng-mouseenter="showTile()" ng-mouseleave="hideTile()">Custom RSS Feed</li>
+      </ul>
+    </div>
+  </div>
+  <div class="overlay hidden"></div>
 </div>
