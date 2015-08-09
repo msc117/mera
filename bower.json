@@ -1,0 +1,34 @@
+{
+  "name": "mera",
+  "version": "0.0.0",
+  "homepage": "t0rrro.github.io",
+  "authors": [
+    "Mikel Canovas <mikel.canovas@gmail.com>"
+  ],
+  "description": "New Tab Replacement",
+  "main": "index.html",
+  "keywords": [
+    "new",
+    "tab",
+    "replacement",
+    "wallpaper",
+    "widget",
+    "tile",
+    "material",
+    "design"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "polymer": "Polymer/polymer#^1.0.0",
+    "paper-ripple": "PolymerElements/paper-ripple#~1.0.1",
+    "page": "visionmedia/page.js#~1.6.3",
+    "iron-localstorage": "PolymerElements/iron-localstorage#~1.0.4"
+  }
+}
