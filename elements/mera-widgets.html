@@ -5,7 +5,7 @@
   <template>
     <div class="gridster">
       <ul>
-        <template is="dom-repeat" tiles="tiles">
+        <template is="dom-repeat" tiles="{{tiles}}">
           <mera-tile url="{{tile.href}}" title="{{tile.title}}"></mera-tile>
         </template>
       </ul>
@@ -21,21 +21,15 @@
         tiles : {
           type: Array,
 
-        }
+        },
         settings : {
           type: Array,
         }
       },
 
       ready : function() {
-        <!-- initialize tiles/settings -->
-        this.settings = JSON.parse(localStorage.getItem('mera-settings'));
-        this.tiles = JSON.parse(localStorage.getItem('mera-tiles'));
-        this.layout = JSON.parse(localStorage.getItem('mera-tiles-layout'));
-        
-        $('.gridster ul').gridster({
-          widget_margins :
-        })
+        <!-- initialize mera-widgets -->
+
       }
     });
   })();

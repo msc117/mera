@@ -1,0 +1,72 @@
+<!-- dependencies -->
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/paper-drawer-panel/paper-drawer-panel.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="mera-main.html">
+
+<dom-module id="mera-content">
+    <style>
+        .menu-content {            
+            -webkit-flex: 1;
+            flex: 1;
+            -webkit-flex-direction: column;
+            flex-direction: column;
+        }
+        .menu-content > .menu-item {
+            padding: 10px;
+            border-top: 1px solid #eee;
+            cursor: pointer;
+        }
+        .menu-content > .menu-item:hover {
+            background-color: #;
+        }
+        .menu-content:last-child {
+            border-bottom: 1px solid #eee;
+        }
+    </style>
+    <template>
+        <paper-drawer-panel drawer-width="400px" responsive-width="2000px">
+            <div drawer>
+                <!-- drawer content -->
+                <div class="menu-content">
+                    <paper-icon-button paper-drawer-toggle alt="menu" icon="menu"></paper-icon-button>
+                    <div class="menu-item">Switch to edit mode</div>
+                    <div class="menu-item">
+                        menu item 2
+                    </div>
+                    <div class="menu-item">
+                        menu item 3
+                    </div>
+                    <div dom-if="{{edit}}">
+                        in edit mode
+                    </div>
+                </div>                
+            </div>
+            <div main>
+                <!-- main page content -->
+                <paper-icon-button paper-drawer-toggle alt="menu" icon="menu"></paper-icon-button>
+                <mera-main></mera-main>
+            </div>
+        </paper-drawer-panel>
+    </template>
+</dom-module>
+<script>
+(function() {
+    'use strict';
+
+    Polymer({
+        is: 'mera-content',
+
+        properties: {
+            edit: {
+                type: Boolean,
+                reflectToAttribute: true,
+                value: false
+            },
+        },
+
+        ready: function() {            
+        }
+    });
+})();
+</script>

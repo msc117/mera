@@ -1,0 +1,47 @@
+<!-- dependencies -->
+<link rel="import" href="mera-tile.html">
+
+<dom-module id="mera-main">
+	<style>
+
+	</style>
+	<template>
+		<!-- web link tile dom repeat -->
+		<template is="dom-repeat" tiles="{{tiles}}">
+			<mera-tile data="{{tile}}"></mera-tile>
+		</template>
+	</template>
+</dom-module>
+<script>
+	(function() {
+		Polymer({
+			is: "mera-main",
+
+			properties: {
+				tiles: {
+					type: Array					
+				}
+			},
+
+			ready: function() {
+				this.tiles = {
+					{
+						"title" : "Facebook",
+						"href" : "www.facebook.com",
+						"descr" : "Social Networking"
+					},
+					{
+						"title" : "Facebook",
+						"href" : "www.facebook.com",
+						"descr" : "Social Networking"
+					},
+					{
+						"title" : "Facebook",
+						"href" : "www.facebook.com",
+						"descr" : "Social Networking"
+					}
+				}
+			}
+		});
+	})();
+</script>

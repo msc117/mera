@@ -1,4 +1,4 @@
-<!-- TODO: a fuckton -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,7 +6,7 @@
     <meta name="description" content="New Tab Replacement">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Mera New Tab" />
-    <title>Mera New Tab</title>
+    <title>New Tab | Mera</title>
     <!-- TODO:Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- TODO:Chrome for Android theme color -->
     <meta name="theme-color" content="#e65100">
@@ -26,10 +26,9 @@
     <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="components/material-min.css">
     <!-- endbuild-->
     <!-- build:js bower_components/webcomponentsjs/webcomponents-lite.min.js -->
-    <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
     <!-- endbuild -->
     <!-- will be replaced with elements/elements.vulcanized.html -->
     <link rel="import" href="elements/elements.html">
@@ -38,19 +37,21 @@
   <body unresolved class="fullbleed">
 
     <template is="dom-bind" id="mera">
-
-      <mera-container>
-        <mera-control-bar></mera-control-bar>
-        <mera-widgets>
-        </mera-widgets>
-      </mera-container>
-
+        <iron-pages selected="{{route}}" attr-for-selected="data-route">
+            <section data-route="home">                
+                <mera-content></mera-content>    
+            </section>
+            <section data-route="edit">
+            edit mode!
+                <mera-control-bar edit></mera-control-bar>
+            </section>
+        </iron-pages>
     </template>
 
+    <!-- js -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="js/main.js"></script>  
     <script src="js/app.js"></script>
 
   </body>
-  <script src="components/jquery.min.js"></script>
-  <script src="components/jquery.gridster.min.js"></script>
 </html>
