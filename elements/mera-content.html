@@ -30,14 +30,16 @@
                 <!-- drawer content -->
                 <div class="menu-content">
                     <paper-icon-button paper-drawer-toggle alt="menu" icon="menu"></paper-icon-button>
-                    <div class="menu-item">Switch to edit mode</div>
+                    <div class="menu-item">
+                    <paper-icon-button  alt="edit" icon="edit"></paper-icon-button>
+                        Switch to edit mode</div>
                     <div class="menu-item">
                         menu item 2
                     </div>
                     <div class="menu-item">
                         menu item 3
                     </div>
-                    <div dom-if="{{edit}}">
+                    <div is="dom-if" if="{{edit}}">
                         in edit mode
                     </div>
                 </div>                

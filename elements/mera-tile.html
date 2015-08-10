@@ -1,18 +1,76 @@
+<!-- dependencies -->
+<link rel="import" href="../bower_components/paper-material/paper-material.html">
+
 <dom-module id="mera-tile">
 	<style>
+	:host {
 
+	}
+	a {
+		text-decoration: none;		
+	}
+	.tile {
+		display: -webkit-flex;
+		display: flex;
+		display: -ms-flex;
+		flex-direction: column;
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
+	}
+	.tile > * {
+		flex: 1;
+	}
+	.tile-info {
+		transition: all .3s ease-in-out;
+		text-align: center;
+		display: block;
+		margin-top: 0;
+		opacity: 1;
+	}
+	.tile-info.hidden {
+		margin-top: 100px;
+		opacity: 0;
+		display: none;
+	}
+	.tile-title {
+		font-weight: bolder;
+	}
 	</style>
 	<template>
+		<paper-material>
+			<a href="{{data.href}}" class="tile">
+				<div class="hero-image">
 
+				</div>
+				<div class="tile-info hidden">
+					<div class="tile-title">{{data.title}}</div>
+					<div class="tile-descr">{{data.descr}}</div>
+				</div>
+			</a>
+		</paper-material>
 	</template>
 </dom-module>
 <script>
 (function() {
+	$(".tile").mouseenter(function() {
+		this.removeClass("hidden");
+	});
+	$(".tile").mouseleave(function() {
+		this.addClass("hidden");
+	});
+
 	Polymer({
 		is: "mera-tile",
 
-		properties : {
+		properties: {
+			data: {
+				type: Object,
+				reflectToAttribute: true
+			}
+		},
 
+		ready: function() {
+			console.log(this.data);
 		}
 	});
 })();

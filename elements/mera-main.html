@@ -19,12 +19,12 @@
 
 			properties: {
 				tiles: {
-					type: Array					
+					type: Object,				
 				}
 			},
 
 			ready: function() {
-				this.tiles = {
+				this.tiles = [
 					{
 						"title" : "Facebook",
 						"href" : "www.facebook.com",
@@ -40,7 +40,8 @@
 						"href" : "www.facebook.com",
 						"descr" : "Social Networking"
 					}
-				}
+				];
+				console.log(this.tiles);
 			}
 		});
 	})();
