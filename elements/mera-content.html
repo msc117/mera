@@ -1,8 +1,10 @@
 <!-- dependencies -->
-<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../bower_components/paper-drawer-panel/paper-drawer-panel.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/paper-ripple/paper-ripple.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="mera-main.html">
+<link rel="import" href="mera-sidebar.html">
 
 <dom-module id="mera-content">
     <style>
@@ -23,30 +25,26 @@
         .menu-content:last-child {
             border-bottom: 1px solid #eee;
         }
+        paper-icon-button:hover {
+            color: #f77700;
+        }   
+        #ui-switch-toggle {
+            --paper-toggle-button-checked-bar-color: var(--dark-primary-color);
+            --paper-toggle-button-checked-button-color: #191919;
+            --paper-toggle-button-checked-ink-color: #191919;
+        }
     </style>
     <template>
         <paper-drawer-panel drawer-width="400px" responsive-width="2000px">
             <div drawer>
+                <paper-icon-button paper-drawer-toggle alt="menu" icon="menu"></paper-icon-button>
                 <!-- drawer content -->
-                <div class="menu-content">
-                    <paper-icon-button paper-drawer-toggle alt="menu" icon="menu"></paper-icon-button>
-                    <div class="menu-item">
-                    <paper-icon-button  alt="edit" icon="edit"></paper-icon-button>
-                        Switch to edit mode</div>
-                    <div class="menu-item">
-                        menu item 2
-                    </div>
-                    <div class="menu-item">
-                        menu item 3
-                    </div>
-                    <div is="dom-if" if="{{edit}}">
-                        in edit mode
-                    </div>
-                </div>                
+                <mera-sidebar></mera-sidebar>
+                             
             </div>
             <div main>
-                <!-- main page content -->
                 <paper-icon-button paper-drawer-toggle alt="menu" icon="menu"></paper-icon-button>
+                <!-- main page content -->                
                 <mera-main></mera-main>
             </div>
         </paper-drawer-panel>
@@ -54,21 +52,20 @@
 </dom-module>
 <script>
 (function() {
-    'use strict';
+
+    var switchUI = function() {
+        console.log($("ui-switch-toggle"));
+    };
 
     Polymer({
         is: 'mera-content',
 
         properties: {
-            edit: {
-                type: Boolean,
-                reflectToAttribute: true,
-                value: false
-            },
         },
 
         ready: function() {            
         }
+
     });
 })();
 </script>

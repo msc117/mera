@@ -1,0 +1,39 @@
+<!-- dependencies -->
+<link rel="import" href="../bower_components/paper-toggle-button/paper-toggle-button.html">
+
+<dom-module id="mera-sidebar">
+	<style>
+
+	</style>
+	<template>
+		<div class="menu-content">
+            <div class="menu-item">
+                Switch to edit mode
+            </div>
+            <div class="menu-item">
+                <div id="ui-switch" onclick="switchUI">
+                    <paper-toggle-button id="ui-switch-toggle"></paper-toggle-button>
+                    <span id="ui-switch-text">dark mode</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                menu item 3
+            </div>
+            <div class="flex-spacer"></div>
+            <div class="menu-item" id="sidebar-footer">
+            Made with <3 by Mikel Canovas
+            </div>
+        </div>   
+	</template>	
+</dom-module>
+<script>
+	(function() {
+		Polymer({
+			is: "mera-sidebar",
+
+			properties: {
+			
+			}
+		});
+	})();
+</script>
