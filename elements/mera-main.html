@@ -24,7 +24,7 @@
 		<template is="dom-repeat" tiles="{{tiles}}">
 			<mera-tile data="{{tile}}"></mera-tile>
 		</template>
-		<div class="flex-block" id="action-fab">
+		<div class="flex-block" id="action-fab" onmouseenter>
 			<div class="actions flex-block hidden">
 				<!-- available addons -->
 				<paper-fab></paper-fab>
@@ -38,13 +38,14 @@
 </dom-module>
 <script>
 	(function() {
+		/* TODO: switch to behaviors/listeners. NO JQUERY
 		$("#action-fab").mouseenter(function() {
 			$(".actions").removeClass("hidden");
 		});
 
 		$("#action-fab").mouseleave(function() {
 			$(".actions").addClass("hidden");
-		});
+		}); */
 
 		Polymer({
 			is: "mera-main",
@@ -74,6 +75,10 @@
 					}
 				];
 				console.log(this.tiles);
+			},
+
+			displayActions: function() {
+
 			}
 		});
 	})();
