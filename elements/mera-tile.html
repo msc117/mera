@@ -30,15 +30,20 @@
 	}
 	#tileHoverPopup {
 		position: absolute;
-		bottom: -180px;
-		background-color: white;
-		opacity: .7;
-		width: 160px; /* width must be tile width -  left/right padding */
-		padding: 10px 20px;
-		transition: all .5s ease-in-out;
+		bottom: 0;
+		background-color: white;		
+		width: 100%;
+		padding: 10px 16px;
+		transition: all .32s ease-in-out;
+		opacity: 0;
+		visibility: hidden;
+		box-sizing: border-box;
+		transform: translate(0, 20px);
 	}
 	#tileHoverPopup.visible {
-		bottom: 0px;
+		visibility: visible;
+		opacity: .7;
+		transform: initial;
 	}
 	#tileHoverPopup > #tile-title {
 		font-weight: bolder;
@@ -99,10 +104,11 @@
 		},
 
 		tileHoverAction: function() {
-			this.$.tileHoverPopup.className += " visible";
+			if (this.$.tileHoverPopup.className.indexOf("visible") == -1)
+				this.$.tileHoverPopup.className += " visible";
 		},
 		tileExitAction: function() {
-			this.$.tileHoverPopup.className.replace(/\visible\b/,'');
+			this.$.tileHoverPopup.classList.remove('visible');
 		}
 	});
 })();
