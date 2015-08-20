@@ -26,7 +26,10 @@
 	}
 	#tileHeroImage {
 		position: absolute;
-		top, left, right, bottom: 0;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		left: 0;
 	}
 	#tileHoverPopup {
 		position: absolute;
@@ -48,6 +51,24 @@
 	#tileHoverPopup > #tile-title {
 		font-weight: bolder;
 	}
+	#editTarget {
+		position: absolute;
+		width: 50%;
+		top: 0;
+		right: 0;	
+		height: 30%;
+	}
+	#tileEdit {
+		transition: opacity .3s linear;
+		color: rgba(0, 0, 0, 0.6);
+		opacity: 0;
+		top: 0;
+		right: 0;
+		position: absolute;	
+	}
+	#tileEdit.visible {
+		opacity: 1;
+	}
 	/*
 	#preview {
 		width: 100%;
@@ -65,7 +86,10 @@
 		<paper-material elevation="3">
 			<a href="{{data.href}}" class="tile">
 					<!-- <img id="p2i_demo" src="http://api.page2images.com/directlink?p2i_url={{data.href}}&p2i_device=6&p2i_screen=1024x768&p2i_size=200x200&p2i_key=f0ebb88b3500f6cf" /> -->			
-				<div id="tileHeroImage" style="background-color: {{data.color}}"></div>		
+				<div id="tileHeroImage" style="background-color: {{data.color}}"></div>
+				<div id="editTarget">
+					<paper-icon-button id="tileEdit" onclick="edit()" alt="edit" icon="menu"></paper-icon-button>
+				</div>			
 				<div id="tileHoverPopup">
 					<div id="tile-title">{{data.title}}</div>
 					<div id="tile-descr">{{data.descr}}</div>
@@ -76,20 +100,14 @@
 </dom-module>
 <script>
 (function() {
-	/* TODO: NO JQUERY
-	$(".tile").mouseenter(function() {
-		this.removeClass("hidden");
-	});
-	$(".tile").mouseleave(function() {
-		this.addClass("hidden");
-	}); */
-
 	Polymer({
 		is: "mera-tile",
 
 		listeners: {
 			"mouseenter" : "tileHoverAction",
-			"mouseleave" : "tileExitAction"
+			"mouseleave" : "tileExitAction",
+			"editTarget.mouseenter" : "showEdit",
+			"editTarget.mouseleave" : "hideEdit"
 		},
 
 		properties: {
@@ -102,13 +120,31 @@
 		ready: function() {
 			console.log(this.data);
 		},
-
 		tileHoverAction: function() {
-			if (this.$.tileHoverPopup.className.indexOf("visible") == -1)
-				this.$.tileHoverPopup.className += " visible";
+			this._showWithClass(this.$.tileHoverPopup, "visible");
 		},
 		tileExitAction: function() {
-			this.$.tileHoverPopup.classList.remove('visible');
+			this._hideByRemove(this.$.tileHoverPopup, "visible");
+		},
+		showEdit: function() {
+			this._showWithClass(this.$.tileEdit, "visible");
+		},
+		hideEdit: function() {
+			this._hideByRemove(this.$.tileEdit, "visible");
+		},
+		edit: function() {
+			console.log(this);
+		},
+
+		// private functions
+		_showWithClass: function(elem, className) {
+			console.log("showing with: " + className);
+			if (elem.className.indexOf(className) == -1)
+				elem.className += " " + className;
+		},
+		_hideByRemove: function(elem, className) {
+			console.log("removing: " + className);
+			elem.classList.remove(className);
 		}
 	});
 })();
