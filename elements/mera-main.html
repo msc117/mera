@@ -1,3 +1,7 @@
+<!-- TODO: on hover display preview for hovered fab item. put overlay on entire page.
+	on click not on overlay or actions, hide preivew/overlay/fab
+ -->
+
 <!-- dependencies -->
 <link rel="import" href="mera-tile.html">
 <link rel="import" href="../bower_components/paper-fab/paper-fab.html">
@@ -6,30 +10,55 @@
 	<style>
 	#action-fab {
 		position: fixed;
-		bottom: 10px;
-		right: 10px;
+		padding: 20px;
+		bottom: -5px;
+		right: 0px;
 	}
 	paper-fab {
+		--paper-fab-keyboard-focus-background: #E83E0C;
 		--paper-fab-background: #f77700;
 		width: 50px;
 		height: 50px;
-		transition: opacity .3s ease-in-out;
 	}
-	paper-fab.hidden {
+	#actions {
+		transition: opacity .1s linear;		
+		opacity: 1;
+	}
+
+	#actions > paper-fab.mera-main {
+		transition: all .3s ease-in-out;
+		margin-bottom: 10px;
+		opacity: 1;
+	}
+	#actions.hidden > paper-fab.mera-main {
+		margin-bottom: -10px;
 		opacity: 0;
+	}
+
+	#actions.hidden {
+		opacity: 0;
+	}
+	#tiles {
+		width: 80%;
+		max-width: 1000px;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: row;
 	}
 	</style>
 	<template>		
 		<!-- web link tile dom repeat -->
-		<template is="dom-repeat" tiles="{{tiles}}">
-			<mera-tile data="{{tile}}"></mera-tile>
-		</template>
-		<div class="flex-block" id="action-fab" onmouseenter>
-			<div class="actions flex-block hidden">
+		<div id="tiles">
+			<template is="dom-repeat" items="{{tiles}}">
+				<mera-tile data="{{item}}"></mera-tile>
+			</template>
+		</div>
+		<div class="flex-block" id="action-fab" aria-expanded="false">
+			<div class="flex-block hidden" id="actions">
 				<!-- available addons -->
-				<paper-fab></paper-fab>
-				<paper-fab></paper-fab>
-				<paper-fab></paper-fab>
+				<paper-fab id="web-link"></paper-fab>
+				<paper-fab id="widget"></paper-fab>
+				<paper-fab id="custom"></paper-fab>
 			</div>
 			<!-- + fab -->
 			<paper-fab icon="add"></paper-fab>
@@ -52,33 +81,64 @@
 
 			properties: {
 				tiles: {
-					type: Object,				
+					type: Array,				
 				}
+			},
+
+			listeners: {
+				'action-fab.mouseenter': 'displayActions',
+				'action-fab.mouseleave': 'hideActions',
+				'web-link.mouseenter': 'showPreview(web-link)',
+				'widget.mouseenter': 'showPreview("widget")',
+				'custom.mouseenter': 'showPreview("custom")',
 			},
 
 			ready: function() {
 				this.tiles = [
 					{
 						"title" : "Facebook",
-						"href" : "www.facebook.com",
-						"descr" : "Social Networking"
+						"href" : "http://www.facebook.com",
+						"descr" : "Social Networking",
+						"color" : "#ff7700"
 					},
 					{
 						"title" : "Facebook",
-						"href" : "www.facebook.com",
-						"descr" : "Social Networking"
+						"href" : "http://www.facebook.com",
+						"descr" : "Social Networking",
+						"color" : "#ff7700"
 					},
 					{
 						"title" : "Facebook",
-						"href" : "www.facebook.com",
-						"descr" : "Social Networking"
+						"href" : "http://www.facebook.com",
+						"descr" : "Social Networking",
+						"color" : "#ff7700"
 					}
 				];
-				console.log(this.tiles);
+				var tiles = document.getElementsByTagName("mera-tile");
+				var extra = this.tiles.length * 8;
+				console.log("added margins: " + extra);
+				var i;
+				i = 0;
+				console.log(i);
+				for (i = 0; i < tiles.length; i++) {
+					console.log(i);
+					tiles[i].style.width = extra + "px";				
+					console.log(tiles[i]);
+				}				
 			},
 
 			displayActions: function() {
+				document.getElementById("actions").classList.toggle("hidden");
+				//TODO: set aria expanded false
+				//document.getElementById("action-fab").attrf("aria-expanded").val("false");
+			},
 
+			hideActions: function() {
+				//document.getElementById("actions").classList.toggle("hidden");				
+			},
+
+			showPreview: function(data) {
+				console.log(data);
 			}
 		});
 	})();

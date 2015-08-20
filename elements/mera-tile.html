@@ -4,10 +4,14 @@
 <dom-module id="mera-tile">
 	<style>
 	:host {
-
+		background-color: cyan;
+	}
+	:host:not(:last-child) {
+		margin-right: 2em;
 	}
 	a {
-		text-decoration: none;		
+		text-decoration: none;
+		color: inherit;	
 	}
 	.tile {
 		display: -webkit-flex;
@@ -16,38 +20,53 @@
 		flex-direction: column;
 		-webkit-flex-direction: column;
 		-ms-flex-direction: column;
+		height: 200px;
+		width: 200px;
+		overflow: hidden;
 	}
-	.tile > * {
-		flex: 1;
+	#tileHeroImage {
+		position: absolute;
+		top, left, right, bottom: 0;
 	}
-	.tile-info {
-		transition: all .3s ease-in-out;
-		text-align: center;
-		display: block;
-		margin-top: 0;
-		opacity: 1;
+	#tileHoverPopup {
+		position: absolute;
+		bottom: -180px;
+		background-color: white;
+		opacity: .7;
+		width: 160px; /* width must be tile width -  left/right padding */
+		padding: 10px 20px;
+		transition: all .5s ease-in-out;
 	}
-	.tile-info.hidden {
-		margin-top: 100px;
-		opacity: 0;
-		display: none;
+	#tileHoverPopup.visible {
+		bottom: 0px;
 	}
-	.tile-title {
+	#tileHoverPopup > #tile-title {
 		font-weight: bolder;
 	}
+	/*
+	#preview {
+		width: 100%;
+	    height: 100%;
+	    border: none;
+	    -moz-transform: scale(0.2);
+	    -moz-transform-origin: 0 0;
+	    -o-transform: scale(0.2);
+	    -o-transform-origin: 0 0;
+	    -webkit-transform: scale(0.2);
+	    -webkit-transform-origin: 0 0;
+	} */
 	</style>
-	<template>
-		<paper-material>
+	<template>		
+		<paper-material elevation="3">
 			<a href="{{data.href}}" class="tile">
-				<div class="hero-image">
-
+					<!-- <img id="p2i_demo" src="http://api.page2images.com/directlink?p2i_url={{data.href}}&p2i_device=6&p2i_screen=1024x768&p2i_size=200x200&p2i_key=f0ebb88b3500f6cf" /> -->			
+				<div id="tileHeroImage" style="background-color: {{data.color}}"></div>		
+				<div id="tileHoverPopup">
+					<div id="tile-title">{{data.title}}</div>
+					<div id="tile-descr">{{data.descr}}</div>
 				</div>
-				<div class="tile-info hidden">
-					<div class="tile-title">{{data.title}}</div>
-					<div class="tile-descr">{{data.descr}}</div>
-				</div>
-			</a>
-		</paper-material>
+			</a>	
+		</paper-material>		
 	</template>
 </dom-module>
 <script>
@@ -63,6 +82,11 @@
 	Polymer({
 		is: "mera-tile",
 
+		listeners: {
+			"mouseenter" : "tileHoverAction",
+			"mouseleave" : "tileExitAction"
+		},
+
 		properties: {
 			data: {
 				type: Object,
@@ -72,6 +96,13 @@
 
 		ready: function() {
 			console.log(this.data);
+		},
+
+		tileHoverAction: function() {
+			this.$.tileHoverPopup.className += " visible";
+		},
+		tileExitAction: function() {
+			this.$.tileHoverPopup.className.replace(/\visible\b/,'');
 		}
 	});
 })();

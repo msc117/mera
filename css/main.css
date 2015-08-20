@@ -19,10 +19,6 @@ helper classes
 
 */
 
-body /deep/ .hidden {
-    display: none !important;
-}
-
 body /deep/ .flex-block {
     display: -webkit-box;
     display: -webkit-flex;
