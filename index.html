@@ -1,28 +1,55 @@
-<!-- TODO: a fuckton -->
 <!DOCTYPE html>
 <html lang="en" ng-app="mera">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/main.css" rel="stylesheet">
-    <link href="bower_components/material-design-icons/sprites/svg-sprite/svg-sprite-navigation.css" rel="stylesheet">
-    <!-- TODO: remove unused fonts -->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!--TODO: set theme color-->
+    <meta name="theme-color" content="#49494C">
+    <base href="/">
+    <title>New Tab | mera</title>
+    <link async href="components/angular-material/angular-material.min.css" rel="stylesheet">
+    <link async href="dist/sass/out.css" rel="stylesheet">
+    <link async href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
 
-    <title>Mera New Tab</title>
-  </head>
-  <body>
-    <div id="splash">Loading...</div>
-    <main ng-view></main>
-  </body>
-  <script src="components/angular.js"></script>
-  <script src="components/angular-rout.min.js"></script>
-  <script src="components/angular-resource.min.js"></script>
-  <script src="components/jquery.min.js"></script>
-  <script src="components/jquery.gridster.min.js"></script>
-  <script src="bower_components/material-design-lite/material.min.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/app.js"></script>
-  <script src="js/controllers.js"></script>
-  <script src="js/services.js"></script>
+<body ng-controller="baseCtrl" ng-cloak 
+    layout="column">
+
+    <main id="page-content" 
+        layout-fill>
+        <md-sidenav class="md-sidenav-left"
+            md-component-id="menu">
+            <header>
+                sidenav header
+            </header>
+            <md-content layout-padding>
+                <ul id="mera-sidenav">
+                    <li class="header">
+                        <h2>widgets</h2>
+                    </li>
+                </ul>
+            </md-content>
+        </md-sidenav>
+        <md-toolbar>toolbar!</md-toolbar>
+        <md-grid-list>
+            <md-grid-tile ng-repeat="mw in meraWidgets"
+                md-colspan-xs="1" md-colspan-gt-xs="{{mw.colspan}}"
+                md-rowspan="{{mw.rowspan}}">
+                <mera-widget data="{{mw}}"></mera-widget>
+            </md-grid-tile>
+        </md-grid-list>
+    </main>
+
+    <footer layout="row" layout-sm="column"></footer>
+
+    <script src="components/angular/angular.js"></script>
+    <script src="components/angular-animate/angular-animate.min.js"></script>
+    <script src="components/angular-aria/angular-aria.min.js"></script>
+    <script src="components/angular-material/angular-material.min.js"></script>
+    <script src="components/color-thief/dist/color-thief.min.js"></script>
+    <script src="dist/ts/out.js"></script>
+</body>
+
 </html>

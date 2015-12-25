@@ -1,30 +1,32 @@
 {
   "name": "mera",
-  "version": "0.0.1",
+  "homepage": "https://github.com/t0rrro/mera",
   "authors": [
-    "Mikel Canovas <mikel.canovas@gmail.com>"
+    "Mikel Santos <msantos@wolfram.com>"
   ],
   "description": "new tab replacement",
   "main": "index.html",
+  "moduleType": [],
   "keywords": [
     "new",
     "tab",
-    "replacement",
-    "wallpaper",
-    "widget",
-    "tile",
-    "material"
+    "chrome",
+    "custom",
+    "replacement"
   ],
   "license": "MIT",
-  "homepage": "toro.github.io",
+  "private": true,
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
+    "components",
     "test",
     "tests"
   ],
   "dependencies": {
-    "material-design-lite": "~1.0.1"
+    "color-thief": "~2.0.1",
+    "angular": "~1.4.8",
+    "angular-material": "~1.0.1"
   }
 }
