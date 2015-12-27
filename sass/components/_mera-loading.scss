@@ -1,0 +1,13 @@
+div.mera-loading {
+    position: fixed;
+    > #loading-content {
+        @include position(fixed, 0 0 0 0);
+        z-index: 99999;
+        background-color: black;
+        &.ng-leave {
+            opacity: 1;
+            @include transition(opacity linear 4s);
+        }
+        &.ng-leave-active { opacity: 0 }
+    }
+}

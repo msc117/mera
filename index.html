@@ -17,14 +17,29 @@
 <body ng-controller="baseCtrl" ng-cloak 
     layout="column">
 
+    <!-- loading screen -->
+    <div class="mera-loading" 
+        ng-animate-children>
+        <div id="loading-content"
+            flex layout-align="center center">
+            <md-progress-circular class="md-primary"
+                md-mode="indeterminate" md-diameter="150px"></md-progress-circular>
+        </div>
+    </div>
+    <!-- end loading screen -->
+
     <main id="page-content" 
         layout-fill>
         <md-sidenav class="md-sidenav-left"
-            md-component-id="menu">
+            md-component-id="menu"
+            layout-padding>
             <header>
-                sidenav header
+                <md-button class="md-icon-button" aria-label="Toggle menu"
+                    ng-click="toggleNav()">
+                    <i class="material-icons">menu</i>
+                </md-button>
             </header>
-            <md-content layout-padding>
+            <md-content>
                 <ul id="mera-sidenav">
                     <li class="header">
                         <h2>widgets</h2>
@@ -32,7 +47,12 @@
                 </ul>
             </md-content>
         </md-sidenav>
-        <md-toolbar>toolbar!</md-toolbar>
+        <md-toolbar layout-padding>
+            <md-button class="md-icon-button" aria-label="Toggle menu"
+                ng-click="toggleNav()">
+                <i class="material-icons">menu</i>
+            </md-button>
+        </md-toolbar>
         <md-grid-list>
             <md-grid-tile ng-repeat="mw in meraWidgets"
                 md-colspan-xs="1" md-colspan-gt-xs="{{mw.colspan}}"

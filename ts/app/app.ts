@@ -7,5 +7,8 @@ module mera {
 	var app = angular.module('mera', ['ngAria', 'ngAnimate', 'ngMaterial'])
 		.config(Config.init())
         .directive('meraWidget', MeraWidget.generate())
-		.controller('baseCtrl', BaseCtrl);
+        .directive('meraLoading', MeraLoading.generate())
+        .service('$storage', StorageService)
+		.controller('baseCtrl', BaseCtrl)
+        .controller('meraClock', MeraClock);
 }

@@ -1,4 +1,3 @@
 /components/
 /node_modules/
-/sass/dist/
-/ts/dist/
+/dist/
