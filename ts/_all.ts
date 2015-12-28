@@ -1,6 +1,7 @@
 /// <reference path='typings/jquery/jquery.d.ts' />
 /// <reference path='typings/angular/angular.d.ts' />
 /// <reference path='typings/angular/angular-material.d.ts' />
+/// <reference path='typings/chrome/chrome.d.ts' />
 /// <reference path='interfaces/IMeraScope.ts' />
 /// <reference path='interfaces/IMeraWidget.ts' />
 /// <reference path='interfaces/IMeraWidgetScope.ts' />
