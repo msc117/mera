@@ -11,6 +11,7 @@
     <title>New Tab | mera</title>
     <link async href="components/angular-material/angular-material.min.css" rel="stylesheet">
     <link async href="dist/sass/out.css" rel="stylesheet">
+    <link async rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lobster" />
     <link async href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
@@ -21,38 +22,20 @@
     <div class="mera-loading" 
         ng-animate-children>
         <div id="loading-content"
-            flex layout-align="center center">
-            <md-progress-circular class="md-primary"
-                md-mode="indeterminate" md-diameter="150px"></md-progress-circular>
+            flex layout-align="center center" layout="column">
+            <h2>mera</h2>
+            <div id="loading-diamond">
+                <div class="part-1 cube"></div>
+                <div class="part-2 cube"></div>
+                <div class="part-4 cube"></div>
+                <div class="part-3 cube"></div>
+            </div>
         </div>
     </div>
     <!-- end loading screen -->
 
     <main id="page-content" 
         layout-fill>
-        <md-sidenav class="md-sidenav-left"
-            md-component-id="menu"
-            layout-padding>
-            <header>
-                <md-button class="md-icon-button" aria-label="Toggle menu"
-                    ng-click="toggleNav()">
-                    <i class="material-icons">menu</i>
-                </md-button>
-            </header>
-            <md-content>
-                <ul id="mera-sidenav">
-                    <li class="header">
-                        <h2>widgets</h2>
-                    </li>
-                </ul>
-            </md-content>
-        </md-sidenav>
-        <md-toolbar layout-padding>
-            <md-button class="md-icon-button" aria-label="Toggle menu"
-                ng-click="toggleNav()">
-                <i class="material-icons">menu</i>
-            </md-button>
-        </md-toolbar>
         <md-grid-list>
             <md-grid-tile ng-repeat="mw in meraWidgets"
                 md-colspan-xs="1" md-colspan-gt-xs="{{mw.colspan}}"

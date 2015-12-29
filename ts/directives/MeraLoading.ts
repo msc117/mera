@@ -15,11 +15,11 @@ module mera {
             private $animate: ng.IAnimateProvider
         ) {
             MeraLoading.prototype.link = (scope: ng.IScope, elem: ng.IAugmentedJQuery, attrs: ng.IAttributes) => {
-                this.$animate.leave( elem.children() ).then(() => {
-                    elem.remove();
+                // this.$animate.leave( elem.children() ).then(() => {
+                //     elem.remove();
                     
-                    scope = elem = attrs = null;
-                })
+                //     scope = elem = attrs = null;
+                // })
             };
         }
         
