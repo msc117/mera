@@ -2,7 +2,7 @@
 
 module mera {
     export interface IMeraStorage {
-        getLayout(): JSON,
-        saveLayout(): boolean
+        get(key: string): Object,
+        set(o: Object): void
     }
 }

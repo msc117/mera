@@ -43,23 +43,23 @@
 
     <!-- dashboard -->
     <main id="page-content" 
-        mera-bg="mera-wall-1.png"
+        mera-bg data-wallpaper="{{settings.wallpaper}}"
         layout-fill>
         <div class="container">
             <div id="mera-wallpaper">
                 <md-button class="md-primary"
+                    ng-click="changeWallpaper($event)"
                     aria-label="Change wallpaper">change wallpaper</md-button>
             </div>
             <md-grid-list>
-                <md-grid-tile ng-repeat="mw in meraWidgets"
-                    md-colspan-xs="1" md-colspan-gt-xs="{{mw.colspan}}"
-                    md-rowspan="{{mw.rowspan}}">
-                    <mera-widget data="{{mw}}"></mera-widget>
+                <md-grid-tile ng-repeat="mw in meraWidgets">
+                    {{mw}}
+                    <mera-widget data="mw"></mera-widget>
                 </md-grid-tile>
             </md-grid-list>
         </div>
     </main>
-    <!-- dashboard -->
+    <!-- end dashboard -->
 
     <script src="components/angular/angular.js"></script>
     <script src="components/angular-animate/angular-animate.min.js"></script>

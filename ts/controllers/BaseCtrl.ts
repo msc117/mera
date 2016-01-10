@@ -7,15 +7,17 @@ module mera {
 	export class BaseCtrl {
 		public static $inject = [
 			'$scope',
+            '$rootScope',
             '$storage',
-            '$mdSidenav'
+            '$mdDialog'
 		];
 		
 		// #region initilization and destruction
 		constructor(
 			private $scope: IMeraScope,
+            private $rootScope: IMeraRootscope,
             private $storage: IMeraStorage,
-            private $mdSidenav: angular.material.ISidenavService
+            private $mdDialog: angular.material.IDialogService
 		) {
 			this.init();
 		}
@@ -25,18 +27,34 @@ module mera {
 		private init(): void {
             var _: BaseCtrl = this;
             // setup scope variables
-            _.$scope.meraWidgets = _.$storage.getLayout();
-            console.log(_.$scope.meraWidgets);
+            _.$scope.meraWidgets = _.$storage.get('mera-layout');
+            _.$rootScope.settings = {};
+            _.$rootScope.settings.wallpaper = _.$storage.get('mera-wallpaper');
+            console.log(_.$scope.meraWidgets, _.$rootScope.settings);
             
             // setup scope functions
-            _.$scope.toggleNav = _.toggleNav_();
-        }
-        
-        private toggleNav_(): () => void {
-            return (): void => {
-                this.$mdSidenav('menu').toggle();  
-            };
+            _.$scope.changeWallpaper = _.changeWallpaper_();
         }
         // #endregion
+        
+        private changeWallpaper_(): (e: Event) => void {
+            return (e): void => {
+                this.$mdDialog.show({
+                   controller: WallpaperDialogCtrl,
+                   templateUrl: 'templates/components/wallpaper-dialog.html',
+                   parent: angular.element(document.body),
+                   targetEvent: e,
+                   clickOutsideToClose: true
+                }).then((ret) => {
+                    // completed
+                    // save wallpaper choice to localstorage
+                    this.$storage.set({'mera-wallpaper': ret});
+                    this.$rootScope.settings.wallpaper = ret;
+                }, () => {
+                    // cancelled
+                    console.log('wallpaper change cancelled');
+                });
+            };
+        }
 	}
 }

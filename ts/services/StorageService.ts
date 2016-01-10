@@ -4,7 +4,7 @@ module mera {
     'use strict';
     
     // typed widget manager
-    export class StorageService implements IMeraStorage {
+    export class StorageService {
         public static $inject = [];
         
         // #region initialization
@@ -18,18 +18,25 @@ module mera {
         // #endregion
         
         // #region public functions
-        // function to get current layout saved to localstorage
-        // @return sorted array of widgets
-        public getLayout(): JSON {
+        // function to get a setting
+        // @return object of matching key or null
+        public get(key): Object {
             var $: StorageService = this;
-            if (!$._exists('mera-layout'))
+            if (localStorage.length === 0)
                 $._initialize();
-            return $._getFromStorage('mera-layout');
+            console.log('getting ', key);
+            return $._getFromStorage(key);
         }
         
-        // function to save current layout to localstorage
-        public saveLayout(): boolean {
-            return false;
+        // function to save a setting
+        // @param setting object to save
+        public set(obj: Object): void {
+            console.log('saving', obj);
+            try { 
+                this._saveToStorage(obj);
+            } catch (e) {
+                console.log('failed to save setting');
+            }
         }
         
         // function to wipe localstorage
@@ -40,11 +47,10 @@ module mera {
     
         // #region private helpers
         // worker function to save to localstorage
-        private _saveToStorage(data: Array<any>): boolean {
+        private _saveToStorage(data: Object): boolean {
             try {
-                angular.forEach(data, (obj) => {
-                    console.log(obj);
-                    localStorage.setItem(obj.key, obj.content); 
+                angular.forEach(data, (v, k) => {
+                    localStorage.setItem(k, JSON.stringify(v)); 
                 });
                 return true;
             } catch (e) {
@@ -53,11 +59,12 @@ module mera {
         }
         
         // worker function to retrieve item from localstorage
-        private _getFromStorage(key): JSON {
+        private _getFromStorage(key): Object {
             try {
-                return JSON.parse(localStorage.getItem(key))
+                return JSON.parse(localStorage.getItem(key));
             } catch (e) {
                 console.log("failed to parse from storage", e);
+                return null;
             }
         }
         
@@ -77,18 +84,19 @@ module mera {
         private _initialize(): void {
             // TODO
             var defaults = {
-                "settings": {
-                    
-                },
-                "layout": [
+                "mera-wallpaper": "mera-wall-1.png",
+                "mera-layout": [
                     "templates/widgets/mera-clock.html"
                 ]
             };
-            console.log("setting default settings");
-            return;
+            console.log('setting default settings', defaults);
+            this._saveToStorage(defaults);
+            //localStorage.setItem('mera-wallpaper', JSON.stringify(defaults.wallpaper));
+            //localStorage.setItem('mera-layout', JSON.stringify(defaults.layout));
         }
         
         // worker function to check if key exists in localstorage
+        // @return boolean success
         private _exists(key: string): any {
             localStorage.getItem(key) ? true : false;
         }
