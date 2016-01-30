@@ -1,7 +1,6 @@
 'use strict';
 
 var argv        = require('yargs').argv,
-    // babel       = require('gulp-babel'),
     bower       = require('gulp-bower'),
     browserSync = require('browser-sync').create(),
     cache       = require('gulp-angular-templatecache'),
@@ -21,7 +20,7 @@ if (nosourcemaps)
     process.stdout.write("-- generating static files with no sourcemaps -- \n");
 
 var cssPaths  = ['sass/*.scss'],
-    jsPaths   = ['ts/**/*.ts', 'ts/**/*.js', '!ts/dist/*.js'],
+    jsPaths   = ['ts/**/*.ts', '!ts/dist/*.js'],
     htmlPaths = ['**/*.html'],
     templates = ['templates/**/*.html'];
 
@@ -33,7 +32,7 @@ gulp.task('css', function () {
         .pipe(concat('out.css'))
         .pipe(cssnano())
         .pipe(gulpif(!nosourcemaps, sourcemaps.write()))
-        .pipe(gulp.dest('dist/sass/'))
+        .pipe(gulp.dest('dist/css/'))
         .pipe(browserSync.stream());
 });
 
@@ -48,7 +47,7 @@ gulp.task('js', function () {
         }))
         .pipe(uglify())
         .pipe(gulpif(!nosourcemaps, sourcemaps.write()))
-        .pipe(gulp.dest('dist/ts/'))
+        .pipe(gulp.dest('dist/js/'))
         .pipe(browserSync.stream());
 });
 
@@ -60,7 +59,7 @@ gulp.task('templates', function () {
             standalone: true,
             module: 'templates'
         }))
-        .pipe(gulp.dest('ts/app/'));
+        .pipe(gulp.dest('dist/js/'));
 });
 
 // download bower dependencies if needed

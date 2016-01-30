@@ -4,7 +4,7 @@ module mera {
 	'use strict';
 	
 	// angular app setup
-	var app = angular.module('mera', ['ngAria', 'ngAnimate', 'ngMaterial'])
+	var app = angular.module('mera', ['templates', 'ngAria', 'ngAnimate', 'ngMaterial'])
 		.config(Config.init())
         .directive('meraWidget', MeraWidget.generate())
         .directive('meraLoading', MeraLoading.generate())
