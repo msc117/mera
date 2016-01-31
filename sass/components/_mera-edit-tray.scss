@@ -1,0 +1,8 @@
+#mera-tray {
+    @include position(absolute, null 0 0 0);
+    .md-fab-toolbar-wrapper { height: 175px }
+    md-fab-trigger {
+        right: 25px;
+        bottom: 25px;
+    }
+}

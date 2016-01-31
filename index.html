@@ -57,6 +57,23 @@
                     <mera-widget data="mw"></mera-widget>
                 </md-grid-tile>
             </md-grid-list>
+            <section id="mera-tray">
+                <md-fab-toolbar md-direction="left">
+                    <md-fab-trigger>
+                        <md-button aria-label="Edit dashboard"
+                            class="md-fab md-primary">
+                            <i class="material-icons">mode_edit</i>
+                        </md-button>
+                    </md-fab-trigger>
+                    <md-toolbar>
+                        <h3>available widgets</h3>
+                        <md-fab-actions class="md-toolbar-tools">
+                            <mera-widget-tile ng-repeat="widget in availableWidgets"
+                                data="widget"></mera-widget-tile>
+                        </md-fab-actions>
+                    </md-toolbar>
+                </md-fab-toolbar>
+            </section>
         </div>
     </main>
     <!-- end dashboard -->

@@ -36,8 +36,7 @@ module mera {
         }
         
         private destruct() {
-            this._scope = null;
-            this._elem = null;
+            this._scope = this._elem = null;
         }
         // #endregion
     

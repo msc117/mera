@@ -31,6 +31,24 @@ module mera {
             _.$rootScope.settings = {};
             _.$rootScope.settings.wallpaper = _.$storage.get('mera-wallpaper');
             console.log(_.$scope.meraWidgets, _.$rootScope.settings);
+            _.$scope.availableWidgets = [
+                {
+                    active: true,
+                    name: 'Clock'      
+                },
+                {
+                    active: true,
+                    name: 'Todo'      
+                },
+                {
+                    active: true,
+                    name: 'Top Sites'      
+                },
+                {
+                    active: false,
+                    name: 'News'      
+                }
+            ];
             
             // setup scope functions
             _.$scope.changeWallpaper = _.changeWallpaper_();

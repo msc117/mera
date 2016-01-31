@@ -8,6 +8,7 @@ module mera {
 		.config(Config.init())
         .directive('meraWidget', MeraWidget.generate())
         .directive('meraLoading', MeraLoading.generate())
+        .directive('meraWidgetTile', MeraWidgetTile.generate())
         .directive('meraBg', MeraBg.generate())
         .service('$storage', StorageService)
 		.controller('baseCtrl', BaseCtrl)

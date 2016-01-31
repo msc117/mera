@@ -1,0 +1,15 @@
+<div class="mera-tray-tile">
+    <div class="actions"
+        ng-if="active">
+        <md-button class="md-fab md-raised md-accent"
+            ng-click="openSettings()">
+            <i class="material-icons">build</i>
+        </md-button>
+        <md-button class="md-fab md-raised md-accent"
+            ng-click="closeTile()">
+            <i class="material-icons">close</i>
+        </md-button>
+    </div>
+    <i class="material-icons">{{icon}}</i>
+    <h3>{{name}}</h3>
+</div>
