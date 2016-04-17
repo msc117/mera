@@ -1,3 +1,11 @@
-/components/
 /node_modules/
-/dist/
+/build/
+/typings/
+.classpath
+.gradle
+.settings
+/bin/
+/tmp/
+npm-debug.log
+.project
+src/resources/local.properties
