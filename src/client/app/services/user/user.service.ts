@@ -1,45 +1,34 @@
 import {Injectable} from 'angular2/core';
 import {Router} from 'angular2/router';
-import {StorageService} from '../';
+import {LocalStorage} from 'angular2-loader/WebStorage';
 
 export interface User {
-    init(): Promise,
     firstName: string,
     lastName?: string,
     email?: string,
-    new: boolean
+    widgets: string[],
+    settings: any,
+    wallpaper: string
 }
 
 @Injectable()
 export class UserService {
-    private user: User = {};
-    private storage: StorageService;
+    @LocalStorage() private user: User = false;
     private router: Router;
 
-    constructor(storage: StorageService, router: Router) {
-        this.storage = storage;
+    constructor(router: Router) {
         this.router = router;
     }
     
-    get firstName() {
-        return this.user.firstName ? this.user.firstName : '';
-    }
-    set firstName(fname) {
-        if (typeof name !== 'String')
-            throw new Error('Name must be string');
-        this.user.firstName = fname;
-    }
- 
-    get lastName() {
-        return this.user.lastName ? this.user.lastName : '';
-    }
-    set lastName(lname) {
-        if (typeof name !== 'String')
-            throw new Error('Name must be string');
-        this.user.lastName = lname;
+    public getUser(): User {
+        if (!this.user)
+            this.router.navigateTo(['Setup']);
+        else
+            return this.user
     }
     
-    public setup(): void {
-        this.router.navigateTo(['Setup']);
+    public update(user: User): void {
+        console.log(`updating ${this.user} with ${user}`);
+        this.user = user;
     }
 }

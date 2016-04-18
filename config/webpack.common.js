@@ -132,7 +132,7 @@ module.exports = {
             // See: https://github.com/jtangelder/sass-loader
             {
                 test: /\.scss$/,
-                loaders: ['style', 'css', 'sass?includePaths[]=' + bourbon']
+                loaders: ['style', 'css', 'sass?includePaths[]=' + bourbon]
             },
 
             // Raw loader support for *.css files

@@ -15,6 +15,10 @@ import 'angular2/router';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 
+// localStorage decorator
+import 'angular2-localstorage/LocalStorageEmitte';
+import 'angular2-localstorage/WebStorage';
+
 // Angular 2 Material 2
 // TODO(gdi2290): uncomment when material is fixed
 // import '@angular2-material/sidenav';

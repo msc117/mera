@@ -1,12 +1,15 @@
-import {Component} from 'angular2/core';
+import {
+    Component,
+    HostBinding,
+    ChangeDetectionStrategy
+} from 'angular2/core';
 
 @Component({
     selector: 'mera-loader',
     template: require('./loader.html') 
 })
 export class MeraLoader {
-    
-    constructor() {}
+    @HostBinding('attr.status')
     
     public set(input: boolean) {
         

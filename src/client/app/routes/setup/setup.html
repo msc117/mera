@@ -1,0 +1,12 @@
+<form [ngFormModel]="setupForm"
+    (submit)="setup()">
+    <md-input ngControl="fname" 
+        placeholder="First Name" 
+        required></md-input>
+    <md-input ngControl="lname" 
+        placeholder="Last Name (optional)"
+        pattern="[a-zA-Z]+"></md-input>
+    <!-- TODO radio select for wallpaper or submit your own -->
+    <br>wallpaper
+    <br>tiles select
+</form>
