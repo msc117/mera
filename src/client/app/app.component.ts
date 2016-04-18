@@ -23,7 +23,7 @@ import {MeraLoader} from './components';
    template: `
       <main>
          <mera-loader></mera-loader>
-         <router-outlet></router-outlet>
+         <router-outlet id="page-content"></router-outlet>
       </main>
    `,
    directives: []

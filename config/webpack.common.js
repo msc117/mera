@@ -2,6 +2,7 @@
  * @author: @AngularClass
  */
 
+const path = require('path');
 const webpack = require('webpack');
 const helpers = require('./helpers');
 
@@ -46,11 +47,9 @@ module.exports = {
     //
     // See: http://webpack.github.io/docs/configuration.html#entry
     entry: {
-
         'polyfills': './src/client/polyfills.ts',
         'vendor': './src/client/vendor.ts',
-        'main': './src/client/main.browser.ts',
-
+        'main': './src/client/main.browser.ts'
     },
 
     // Options affecting the resolving of modules.
@@ -156,6 +155,10 @@ module.exports = {
 
         ]
 
+    },
+    // sass loader options
+    sassLoader: {
+        includePaths: [path.resolve(__dirname, '../src/client/styles')]
     },
 
     // Add additional plugins to the compiler.
