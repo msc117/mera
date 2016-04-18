@@ -6,7 +6,6 @@ import {
    FORM_DIRECTIVES
 } from 'angular2/common';
 import {CanActivate} from 'angular2/router';
-import {LocalStorage} from 'angular2-localstorage/WebStorage';
 
 @Component({
     selector: 'mera-setup',
@@ -28,7 +27,7 @@ export class MeraSetup {
     
     ngOnInit() {
         this.setupForm = this.fb.group({
-            fname: ['', Validators.required]
+            fname: ['', Validators.required],
             lname: ['', Validators.pattern('[a-zA-Z]+')]
         });
     }

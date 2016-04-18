@@ -6,6 +6,6 @@ import {Component} from 'angular2/core';
       <p>The server encountered an error while processing your request.</p>
    `
 })
-export class ServerErrorComponent {
+export class ServerError {
    constructor() {}
 }

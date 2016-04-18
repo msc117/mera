@@ -7,12 +7,15 @@ Install dependencies and start dev server
 `$ npm start:hmr` install and start dev server with hot module reloading (better performance)
 
 Start server
-`$ npm server` run webpack dev server
-`$ npm server:dev:hmr` run dev server with hot module reloading
-`$ npm server:prd` run production server
+`$ npm run server` run webpack dev server
+`$ npm run server:dev:hmr` run dev server with hot module reloading
+`$ npm run server:prd` run production server
 
 Create build
-`$ npm build` create dev build
-`$ npm build:prd` create production build
+`$ npm run build` create dev build
+`$ npm run build:prd` create production build
 
 Full list of scripts available at package.json
+
+Contributors
+Mikel Canovas - Project lead

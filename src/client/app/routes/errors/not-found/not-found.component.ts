@@ -6,6 +6,6 @@ import {Component} from 'angular2/core';
       <p>The requested resource could not be found.</p>
    `
 })
-export class NotFoundComponent {
+export class NotFound {
    constructor() {}
 }

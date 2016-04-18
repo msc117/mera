@@ -6,14 +6,11 @@ import {
 } from 'angular2/router';
 import {AppState} from './app.service';
 import {
-    User,
-    LoaderService    
+    User   
 } from './services';
 import {hasInitiated} from './lib/has-initiated';
 
 import {Home} from './routes/home';
-import {NotFoundComponent} from './routes/errors/not-found.component';
-import {ServerErrorComponent} from './routes/errors/server-error.component';
 import {MeraLoader} from './components';
 
 @Component({
@@ -29,10 +26,10 @@ import {MeraLoader} from './components';
 })
 @RouteConfig([
    { path: '/', name: 'Home', component: Home, useAsDefault: true },
-   { path: '/404', name: 'NotFound', component: NotFoundComponent },
-   { path: '/500', name: 'ServerError', component: ServerErrorComponent },
    
-   { path: '/setup', name: 'Setup', loader: require('es6-promise!./routes')('') }
+   { path: '/404',   name: 'NotFound',    loader: require('es6-promise!./routes')('NotFound') },
+   { path: '/500',   name: 'ServerError', loader: require('es6-promise!./routes')('ServerError') },
+   { path: '/setup', name: 'Setup',       loader: require('es6-promise!./routes')('MeraSetup') }
 ])
 export class MeraApp {
    @LocalStorage() private user: User = false;
@@ -40,7 +37,7 @@ export class MeraApp {
    constructor(public appState: AppState, private router: Router) {}
 
    ngOnInit() {
-       if (!user)
+       if (!this.user)
            this.router.navigate(['Setup']);
        this.router.subscribe(path => {
            console.log(path);
