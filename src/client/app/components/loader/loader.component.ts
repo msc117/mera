@@ -1,6 +1,7 @@
 import {
     Component,
     HostBinding,
+    Input,
     ChangeDetectionStrategy
 } from 'angular2/core';
 import {NgIf} from 'angular2/common';
@@ -34,7 +35,7 @@ export class MeraLoader {
     public done(): void {
         // allow time for fadeout
         this.close = true;
-        setTimeout({
+        setTimeout(() => {
             this.active = false;
         }, 300);
     }

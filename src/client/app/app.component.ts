@@ -4,7 +4,6 @@ import {
    RouteConfig,
    ROUTER_PROVIDERS
 } from 'angular2/router';
-import {LocalStorage} from 'angular2-localstorage/WebStorage';
 import {AppState} from './app.service';
 import {
     User,
@@ -42,7 +41,7 @@ export class MeraApp {
 
    ngOnInit() {
        if (!user)
-           this.router.navigateTo(['Setup']);
+           this.router.navigate(['Setup']);
        this.router.subscribe(path => {
            console.log(path);
        });

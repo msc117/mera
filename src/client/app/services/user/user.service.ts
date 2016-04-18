@@ -14,15 +14,12 @@ export interface User {
 @Injectable()
 export class UserService {
     @LocalStorage() private user: User = false;
-    private router: Router;
-
-    constructor(router: Router) {
-        this.router = router;
-    }
+    
+    constructor(private router: Router) {}
     
     public getUser(): User {
         if (!this.user)
-            this.router.navigateTo(['Setup']);
+            this.router.navigate(['Setup']);
         else
             return this.user
     }
