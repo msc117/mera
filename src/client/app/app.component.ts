@@ -5,9 +5,7 @@ import {
    ROUTER_PROVIDERS
 } from 'angular2/router';
 import {AppState} from './app.service';
-import {
-    User   
-} from './services';
+import {User} from './services';
 import {hasInitiated} from './lib/has-initiated';
 
 import {Home} from './routes/home';
