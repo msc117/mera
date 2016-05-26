@@ -1,14 +1,12 @@
-import {Injectable} from 'angular2/core';
-import {HmrState} from 'angular2-hmr';
+import { Injectable } from '@angular/core';
+import { HmrState } from 'angular2-hmr';
 
 @Injectable()
 export class AppState {
-  // HmrState uis used by HMR to track the any state during reloading
+  // HmrState is used by HMR to track the state during reloading
   @HmrState() _state = {};
 
-  constructor() {
-
-  }
+  constructor() {}
 
   // already return a clone of the current state
   get state() {

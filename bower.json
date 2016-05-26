@@ -1,0 +1,18 @@
+{
+  "name": "mera",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Mikel Santos <msantos@wolfram.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/t0rrro/mera",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

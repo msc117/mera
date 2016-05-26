@@ -1,12 +1,11 @@
 import {
-it,
-inject,
-injectAsync,
-describe,
-beforeEachProviders,
-TestComponentBuilder
-} from 'angular2/testing';
-import {Home} from './home.component';
+    it,
+    inject,
+    injectAsync,
+    describe,
+    beforeEachProviders,
+    TestComponentBuilder } from '@angular/testing';
+import { Home } from './home.component';
 
 describe('Home', () => {
    it('should log ngOnInit', inject([Home], (home) => {

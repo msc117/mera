@@ -1,11 +1,9 @@
-import {Component} from 'angular2/core';
+import { Component } from '@angular/core';
 import {
    FormBuilder,
    ControlGroup,
    Validators,
-   FORM_DIRECTIVES
-} from 'angular2/common';
-import {CanActivate} from 'angular2/router';
+   FORM_DIRECTIVES } from '@angular/common';
 
 @Component({
     selector: 'mera-setup',
@@ -14,13 +12,8 @@ import {CanActivate} from 'angular2/router';
     providers: [FormBuilder],
     directives: [FORM_DIRECTIVES]
 })
-@CanActivate({
-    // check if actually is new user
-    // if not redirect Home
-    return true;
-})
 export class MeraSetup {
-    @LocalStorage() private user: User = false;
+    // @LocalStorage() private user: User = false;
     setupForm: ControlGroup;
     
     constructor(private fb: FormBuilder) {}
@@ -35,7 +28,7 @@ export class MeraSetup {
     // validate input and 
     setup(): void {
         console.log(this.setupForm);
-        for (let k, v of this.setupForm.value) {
+        for (let [k, v] of this.setupForm.value) {
             console.log(k, v);
         }
     }

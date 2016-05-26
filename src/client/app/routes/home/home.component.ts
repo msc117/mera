@@ -1,11 +1,11 @@
-import {Component} from 'angular2/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
    selector: 'home',
    template: require('./home.html')
    // styles: [ require('./home.scss') ],
 })
-export class Home {
+export class Home implements OnInit {
 
    constructor() {}
 

@@ -1,7 +1,12 @@
-import {describe, it, expect, beforeEachProviders, inject} from 'angular2/testing';
-import {DashApp} from './app.component';
+import {
+    describe, 
+    it, 
+    expect, 
+    beforeEachProviders, 
+    inject } from '@angular/testing';
+import { MeraApp } from './app.component';
 
-beforeEachProviders(() => [DashApp]);
+beforeEachProviders(() => [MeraApp]);
 
 // describe('App: Dash', () => {
 //   it('should have grabbed user data', inject([DashApp], (app: DashApp) => {

@@ -1,5 +1,5 @@
-import {LOCALSTORAGE_METADATA} from './angular2-localstorage';
+// import {LOCALSTORAGE_METADATA} from './angular2-localstorage';
 
-export const METADATA = [
-    ...LOCALSTORAGE_METADATA
-];
+// export const METADATA = [
+//     ...LOCALSTORAGE_METADATA
+// ];

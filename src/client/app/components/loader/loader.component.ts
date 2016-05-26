@@ -1,10 +1,8 @@
 import {
     Component,
     HostBinding,
-    Input,
-    ChangeDetectionStrategy
-} from 'angular2/core';
-import {NgIf} from 'angular2/common';
+    Input } from '@angular/core';
+import { NgIf } from '@angular/common';
 
 @Component({
     selector: 'mera-loader',
