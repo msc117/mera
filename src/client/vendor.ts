@@ -9,7 +9,6 @@ import '@angular/platform-browser-dynamic'
 import '@angular/core';
 import '@angular/common';
 import '@angular/http';
-import '@angular/router';
 
 // Polymer
 // See: webpack.common.js alias

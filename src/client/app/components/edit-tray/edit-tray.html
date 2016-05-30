@@ -1,0 +1,9 @@
+<div id="fab"
+    *ngIf="!open" 
+    (click)="open = true"></div>
+<section *ngIf="open">
+    <div (click)="open = false">X</div>
+    <mera-edit-tool 
+        *ngFor="let tool of tools"
+        [tool]="tool"></mera-edit-tool>
+</section>

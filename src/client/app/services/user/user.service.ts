@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 // import { LocalStorage } from 'angular2-loader/WebStorage';
 
-export interface User {
+export interface IUser {
     firstName: string,
     lastName?: string,
     email?: string,
@@ -13,20 +12,16 @@ export interface User {
 
 @Injectable()
 export class UserService {
-    private user: User;
+    private user: IUser;
     // @LocalStorage() private user: User = false;
     
-    constructor(private router: Router) {}
+    constructor() {}
     
-    public getUser(): User {
-        if (!this.user) {
-            this.router.navigate(['/setup']);
-        } else {
-            return this.user;
-        }
+    public getUser(): IUser {
+        
     }
     
-    public update(user: User): void {
+    public update(user: IUser): void {
         console.log(`updating ${this.user} with ${user}`);
         this.user = user;
     }

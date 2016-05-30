@@ -12,6 +12,7 @@ import { NgIf } from '@angular/common';
         'aria-valuemax': '100',
     },
     directives: [NgIf],
+    styles: [ require('./loader.scss') ],
     template: require('./loader.html')
 })
 export class MeraLoader {
