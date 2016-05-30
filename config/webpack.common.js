@@ -159,7 +159,7 @@ module.exports = {
     },
     // sass loader options
     sassLoader: {
-        includePaths: [path.resolve(__dirname, '../src/client/styles')]
+        includePaths: [path.resolve(__dirname, '../src/client/app/styles')]
     },
 
     // Add additional plugins to the compiler.

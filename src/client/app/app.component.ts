@@ -17,7 +17,8 @@ import { Loader, Dashboard } from './components';
          <mera-dashboard [tools]="tools"></mera-dashboard>
       </main>
    `,
-   directives: []
+   providers: [ToolService],
+   directives: [Loader, Dashboard]
 })
 export class MeraApp {
     private user: IUser;
@@ -30,6 +31,7 @@ export class MeraApp {
     ngOnInit() {
         this.toolService.get()
             .subscribe(tools => {
+                console.log(tools);
                 this.tools = tools;
                 this.loaderActive = false;});
     }
