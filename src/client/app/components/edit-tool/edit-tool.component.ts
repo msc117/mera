@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {
+    Component,
+    OnInit,
+    Input } from '@angular/core';
+import { IMeraTool } from '../../services';
 
 @Component({
     moduleId: module.id,
@@ -7,7 +11,11 @@ import { Component, OnInit } from '@angular/core';
     styles: [require('./edit-tool.scss')]
 })
 export class EditTool implements OnInit {
+    @Input() tool: IMeraTool;
+    
     constructor() { }
 
-    ngOnInit() { }
+    ngOnInit() {
+        console.log(this.tool);
+    }
 }
