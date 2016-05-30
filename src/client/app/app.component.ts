@@ -7,18 +7,13 @@ import {
 // import { hasInitiated } from './lib/has-initiated';
 // import { LocalStorage } from 'angular2-localstorage';
 
-import {
-    Home,
-    NotFound,
-    ServerError,
-    MeraSetup } from './routes';
 import { Loader, Dashboard } from './components';
 
 @Component({
    selector: 'mera-app',
    template: `
       <main>
-         <mera-loader active="{{loaderActive}}"></mera-loader>
+         <mera-loader [active]="loaderActive"></mera-loader>
          <mera-dashboard [tools]="tools"></mera-dashboard>
       </main>
    `,
@@ -34,7 +29,8 @@ export class MeraApp {
 
     ngOnInit() {
         this.toolService.get()
-            .subscribe(
-                tools => this.tools = tools);
+            .subscribe(tools => {
+                this.tools = tools;
+                this.loaderActive = false;});
     }
 }

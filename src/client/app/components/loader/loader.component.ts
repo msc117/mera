@@ -17,10 +17,10 @@ import { NgIf } from '@angular/common';
 })
 export class Loader {
     private close: boolean = false;
-    private active: boolean = false;
     
     @HostBinding('attr.aria-valuenow')
     @Input('value')
+    @Input() active: boolean;
     _value: number = 0;
     
     public set(input: boolean) {

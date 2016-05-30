@@ -18,7 +18,7 @@ export class UserService {
     constructor() {}
     
     public getUser(): IUser {
-        
+        return;
     }
     
     public update(user: IUser): void {
