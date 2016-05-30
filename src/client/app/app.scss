@@ -38,15 +38,3 @@ main { @include flex(1 0 auto) }
    padding: 0 15px;
    @include respond-to($from: 'medium', $to: 'large') { width: 860px }
 }
-
-// content margins
-#page-content > * {
-   &:first-child {
-      margin-top: $content-margin-top;
-      @include respond-to($to: 'small') { margin-top: $content-margin-top-sm }
-   }
-   &:last-child {
-      margin-bottom: $footer-margin-bottom;
-      @include respond-to($to: 'small') { margin-bottom: $footer-margin-bottom-sm }
-   }
-}

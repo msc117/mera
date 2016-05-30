@@ -7,8 +7,8 @@ import { IMeraTool } from '../../services';
 @Component({
     moduleId: module.id,
     selector: 'mera-edit-tool',
-    template: require('./edit-tool.html'),
-    styles: [require('./edit-tool.scss')]
+    template: require('./edit-tool.html')
+    // styles: [require('./edit-tool.scss')]
 })
 export class EditTool implements OnInit {
     @Input() tool: IMeraTool;

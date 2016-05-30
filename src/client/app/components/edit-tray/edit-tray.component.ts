@@ -5,7 +5,7 @@ import { IMeraTool } from '../../services';
 
 @Component({
     selector: 'mera-edit-tray',
-    styles: [require('./edit-tray.scss')],
+    // styles: [require('./edit-tray.scss')],
     template: require('./edit-tray.html'),
     directives: [NgIf, NgFor],
     providers: [EditTool]

@@ -17,6 +17,7 @@ import { Loader, Dashboard } from './components';
          <mera-dashboard [tools]="tools"></mera-dashboard>
       </main>
    `,
+   styles: [require('./app.scss')],
    providers: [ToolService],
    directives: [Loader, Dashboard]
 })
