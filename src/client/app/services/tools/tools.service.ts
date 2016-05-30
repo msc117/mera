@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 
 export interface IMeraTool {
     name: string,
@@ -32,7 +33,7 @@ export class ToolsService {
     constructor() {}
     
     // return list of tools
-    public get() {
-        return this.tools;
+    public get(): Observable<IMeraTool[]> {
+        return Observable.of(this.tools);
     }    
 }
