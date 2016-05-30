@@ -132,7 +132,7 @@ module.exports = {
             // See: https://github.com/jtangelder/sass-loader
             {
                 test: /\.scss$/,
-                loaders: ['style', 'css', 'sass?includePaths[]=' + bourbon]
+                loaders: ['style', 'css', 'sass-loader?config=sassLoader']
             },
 
             // Raw loader support for *.css files
@@ -158,9 +158,10 @@ module.exports = {
 
     },
     // sass loader options
-    sassLoader: {
-        includePaths: [path.resolve(__dirname, '../src/client/app/styles')]
-    },
+	sassLoader: {
+		includePaths: [require('node-bourbon').includePaths, helpers.root('src/client/app/styles')],
+		sourceMap: 'evalSourceMap'
+	},
 
     // Add additional plugins to the compiler.
     //
