@@ -1,1 +1,6 @@
-dashboard!
+<div *ngFor="let tool of tools">
+    <h3>{{tool.name}}</h3>
+    <div [innerHTML]="tool.html"></div>
+</div>
+
+<mera-edit-tray></mera-edit-tray>

@@ -11,7 +11,7 @@ export interface IMeraTool {
 }
 
 @Injectable()
-export class ToolsService {
+export class ToolService {
     private tools: IMeraTool[] = [
         {
             name: 'clock',
@@ -20,7 +20,7 @@ export class ToolsService {
         },
         {
             name: 'quote of the day',
-            html: 'remember, you will die.',
+            html: `<div>veni, vidi, vici</div>`,
             default: true
         },
         {

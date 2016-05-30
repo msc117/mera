@@ -2,15 +2,17 @@ import {
     Component,
     OnInit,
     Input } from '@angular/core';
+import { NgFor } from '@angular/common';
 import { IMeraTool } from '../../services';
 
 @Component({
     selector: 'mera-dashboard',
     template: require('./dashboard.html'),
-    styles: [require('./dashboard.scss')]
+    styles: [require('./dashboard.scss')],
+    directives: [NgFor]
 })
 export class Dashboard implements OnInit {
-    @Input('tools') tools: IMeraTool[];
+    @Input() tools: IMeraTool[];
     
     constructor() { }
 
