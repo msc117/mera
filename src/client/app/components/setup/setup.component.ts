@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { 
+   Component,
+   Output,
+   EventEmitter } from '@angular/core';
 import {
    FormBuilder,
    ControlGroup,
@@ -12,24 +15,29 @@ import {
     providers: [FormBuilder],
     directives: [FORM_DIRECTIVES]
 })
-export class MeraSetup {
-    // @LocalStorage() private user: User = false;
-    setupForm: ControlGroup;
+export class Setup {
+    private setupForm: ControlGroup;
     
-    constructor(private fb: FormBuilder) {}
+    @Output() done: EventEmitter<any> = new EventEmitter();
     
-    ngOnInit() {
+    constructor(private fb: FormBuilder) {
         this.setupForm = this.fb.group({
             fname: ['', Validators.required],
             lname: ['', Validators.pattern('[a-zA-Z]+')]
         });
     }
-    
+
     // validate input and 
-    setup(): void {
-        console.log(this.setupForm);
+    setup(event: UIEvent): void {
+        if (event) {
+            event.preventDefault();
+        }
+            
+        console.log(this.setupForm.value);
         for (let [k, v] of this.setupForm.value) {
             console.log(k, v);
         }
+        
+        this.done.emit(this.setupForm.value);
     }
 }

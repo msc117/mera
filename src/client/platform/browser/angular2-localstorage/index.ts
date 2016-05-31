@@ -1,5 +1,5 @@
-// import { LocalStorage } from 'angular2-localstorage/LocalStorage';
+import { LocalStorageService } from 'angular2-localstorage/LocalStorageEmitter';
 
-// export const LOCALSTORAGE_METADATA = [
-//     LocalStorage
-// ];
+export const LOCALSTORAGE_PROVIDERS = [
+    LocalStorageService
+];

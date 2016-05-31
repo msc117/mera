@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-// import { LocalStorage } from 'angular2-loader/WebStorage';
+import { LocalStorage } from 'angular2-localstorage/WebStorage';
 
 export interface IUser {
     firstName: string,
@@ -12,13 +12,13 @@ export interface IUser {
 
 @Injectable()
 export class UserService {
-    private user: IUser;
-    // @LocalStorage() private user: User = false;
+    @LocalStorage() private user: IUser;
     
     constructor() {}
     
-    public getUser(): IUser {
-        return;
+    public get(): IUser {
+        console.log('returning user', this.user);
+        return this.user;
     }
     
     public update(user: IUser): void {

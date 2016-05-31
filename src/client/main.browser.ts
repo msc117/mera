@@ -6,6 +6,9 @@ import { bootstrap } from '@angular/platform-browser-dynamic';
 import { DIRECTIVES, PIPES, PROVIDERS } from './platform/browser';
 import { ENV_PROVIDERS } from './platform/environment';
 
+// localstorage subscriber
+import { LocalStorageSubscriber } from 'angular2-localstorage/LocalStorageEmitter'
+
 /*
 * App Component
 * our top level component that holds all of our components
@@ -18,7 +21,7 @@ import { MeraApp, APP_PROVIDERS } from './app';
  */
 export function main(initialHmrState?: any): Promise<any> {
 
-  return bootstrap(MeraApp, [
+  let bootPromise = bootstrap(MeraApp, [
     ...ENV_PROVIDERS,
     ...PROVIDERS,
     ...DIRECTIVES,
@@ -27,6 +30,9 @@ export function main(initialHmrState?: any): Promise<any> {
   ])
   .catch(err => console.error(err));
 
+  LocalStorageSubscriber(bootPromise);
+  
+  return bootPromise;
 }
 
 /*
