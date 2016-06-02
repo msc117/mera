@@ -19,7 +19,7 @@ import {
          <p *ngIf="user">Welcome {{user.firstName}} {{user.lastName}}</p>
          <mera-loader [active]="loaderActive"></mera-loader>
          <mera-setup *ngIf="notSetup"
-            (done)="finishedSetup(data)"></mera-setup>
+            (done)="finishedSetup($event)"></mera-setup>
          <mera-dashboard [tools]="tools"></mera-dashboard>
       </main>
    `,
