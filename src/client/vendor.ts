@@ -12,7 +12,7 @@ import '@angular/http';
 
 // Polymer
 // See: webpack.common.js alias
-// import 'webcomponents-lite';
+import 'webcomponents-lite';
 // import 'polymer/paper-button';
 // import 'polymer/paper-dialog';
 

@@ -5,9 +5,9 @@ export interface IUser {
     firstName: string,
     lastName?: string,
     email?: string,
-    widgets: string[],
-    settings: any,
-    wallpaper: string
+    widgets?: string[],
+    settings?: any,
+    wallpaper?: string
 }
 
 @Injectable()

@@ -1,6 +1,8 @@
 /node_modules/
+/bower_components/
 /build/
 /typings/
+src/client/vulcanized.html
 .classpath
 .gradle
 .settings
