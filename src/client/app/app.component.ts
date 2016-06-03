@@ -6,7 +6,6 @@ import {
     ToolService,
     UserService,
     IMeraTool } from './services';
-
 import {
     Loader,
     Dashboard,
@@ -16,6 +15,7 @@ import {
    selector: 'mera-app',
    template: `
       <main>
+         <paper-button (click)="resetUser()">reset user</paper-button>
          <p *ngIf="user">Welcome {{user.firstName}} {{user.lastName}}</p>
          <mera-loader [active]="loaderActive"></mera-loader>
          <mera-setup *ngIf="notSetup"
@@ -50,8 +50,13 @@ export class MeraApp {
         }
     }
     
-    private finishedSetup(data: any) {
-        console.log(data);
+    private finishedSetup(user: IUser) {
+        console.log(user);
+        this.userService.update(user);
         this.notSetup = false;
+    }
+    
+    private resetUser() {
+        this.userService.update(null);
     }
 }

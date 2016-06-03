@@ -16,14 +16,15 @@ import {
     directives: [FORM_DIRECTIVES]
 })
 export class Setup {
+    private formError: string;
     private setupForm: ControlGroup;
     
     @Output() done: EventEmitter<any> = new EventEmitter();
     
     constructor(private fb: FormBuilder) {
         this.setupForm = this.fb.group({
-            fname: ['', Validators.required],
-            lname: ['', Validators.pattern('[a-zA-Z]+')]
+            firstName: ['', Validators.required],
+            lastName: ['', Validators.pattern('[a-zA-Z]+')]
         });
     }
 
@@ -32,12 +33,13 @@ export class Setup {
         if (event) {
             event.preventDefault();
         }
-            
-        console.log(this.setupForm.value);
-        for (let [k, v] of this.setupForm.value) {
-            console.log(k, v);
-        }
         
-        this.done.emit(this.setupForm.value);
+        console.log(this.setupForm.value, this.setupForm.valid);
+        if (this.setupForm.valid) { 
+            this.formError = undefined;
+            this.done.emit(this.setupForm.value);
+        } else {
+            this.formError = 'Form not valid';
+        }
     }
 }

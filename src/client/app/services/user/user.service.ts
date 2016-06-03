@@ -22,7 +22,8 @@ export class UserService {
     }
     
     public update(user: IUser): void {
-        console.log(`updating ${this.user} with ${user}`);
+        console.log('old user', this.user);
         this.user = user;
+        console.log('new user', this.user);
     }
 }
