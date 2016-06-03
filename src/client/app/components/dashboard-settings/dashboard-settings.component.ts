@@ -10,4 +10,15 @@ export class DashboardSettings {
 
     constructor() { }
 
+    private openSettings() {
+        (<any>document.getElementById('settings-dialog')).open()
+    }
+
+    private closeSettings() {
+        (<any>document.getElementById('settings-dialog')).close()
+    }
+    
+    private save() {
+        console.log('saving');
+    }
 }

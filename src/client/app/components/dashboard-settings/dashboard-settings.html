@@ -1,0 +1,15 @@
+<paper-button (click)="openSettings()">settings</paper-button>
+
+<paper-dialog id="settings-dialog" 
+    entry-animation="scale-up-animation" 
+    exit-animation="fade-out-animation" 
+    with-backdrop>
+    <h2>mera settings</h2>
+    <paper-dialog-scrollable>
+        settings!
+    </paper-dialog-scrollable>
+    <div class="buttons">
+        <paper-button dialog-dismiss (click)="closeSettings()">Cancel</paper-button>
+        <paper-button dialog-confirm (click)="save()">Save</paper-button>
+    </div>
+</paper-dialog>
