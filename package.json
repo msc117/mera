@@ -44,7 +44,7 @@
     "server:prd": "http-server build",
     "webdriver:update": "npm run webdriver-manager update",
     "webdriver:start": "npm run webdriver-manager start",
-    "lint": "npm run tslint 'src/client/**/*.ts'",
+    "lint": "npm run tslint src/client/**/*.ts",
     "pree2e": "npm run webdriver:update -- --standalone",
     "e2e": "npm run protractor",
     "e2e:live": "npm run e2e -- --elementExplorer",
@@ -76,8 +76,8 @@
   },
   "devDependencies": {
     "angular2-hmr": "~0.7.0",
-    "awesome-typescript-loader": "~0.17.0",
-    "codelyzer": "0.0.19",
+    "awesome-typescript-loader": "~0.19.0",
+    "codelyzer": "0.0.20",
     "compression-webpack-plugin": "^0.3.1",
     "copy-webpack-plugin": "^3.0.1",
     "css-loader": "^0.23.1",
@@ -120,7 +120,7 @@
     "ts-node": "^0.7.3",
     "tslint": "^3.10.2",
     "tslint-loader": "^2.1.4",
-    "typedoc": "^0.3.12",
+    "typedoc": "^0.4.1",
     "typescript": "^1.8.10",
     "typings": "^1.0.4",
     "url-loader": "^0.5.7",
@@ -128,6 +128,6 @@
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1",
     "webpack-md5-hash": "^0.0.5",
-    "webpack-merge": "^0.13.0"
+    "webpack-merge": "^0.14.0"
   }
 }
