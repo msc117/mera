@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NgIf } from '@angular/common';
 import { AppState } from './app.service';
-import { 
+import {
     IUser,
     ToolService,
     UserService,
@@ -38,25 +38,25 @@ export class MeraApp {
 
     ngOnInit() {
         let user = this.userService.get();
-        
+
         if (user) {
             this.toolService.get()
                 .subscribe(tools => {
                     console.log(tools);
                     this.tools = tools;
                     this.loaderActive = false;});
-        } else { 
+        } else {
             this.notSetup = true;
         }
     }
-    
+
     private finishedSetup(user: IUser) {
         console.log(user);
         this.userService.update(user);
         this.notSetup = false;
     }
-    
+
     private resetUser() {
-        this.userService.update(null);
+        this.userService.update(undefined);
     }
 }
